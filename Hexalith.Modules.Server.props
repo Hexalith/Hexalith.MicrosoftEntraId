@@ -1,0 +1,12 @@
+<Project>
+	<PropertyGroup>
+		<HexalithModulesServerProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.Modules.Server.props', '$(MSBuildThisFileDirectory)..'))</HexalithModulesServerProps>
+	</PropertyGroup>
+	<Import Project="$(HexalithModulesServerProps)" Condition=" '$(HexalithModulesServerProps)' != '' " />
+	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
+		<ProjectReference Include="$(HexalithOidcPath)\src\Modules\Hexalith.Oidc.Server\Hexalith.Oidc.Server.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(UseProjectReference)' != 'true'">
+		<PackageReference Include="Hexalith.Oidc.Server" Version="$(HexalithOidcVersion)" />
+	</ItemGroup>
+</Project>

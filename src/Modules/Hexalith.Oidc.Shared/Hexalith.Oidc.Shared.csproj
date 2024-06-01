@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
+		<ProjectReference Include="$(HexalithPath)\src\Core\Application\Hexalith.Apllication.Modules.Abstractions\Hexalith.Apllication.Modules.Abstractions.csproj" />
+		<ProjectReference Include="$(HexalithPath)\src\Core\Application\Hexalith.Apllication.Abstractions\Hexalith.Apllication.Abstractions.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(UseProjectReference)' != 'true'">
+		<PackageReference Include="Hexalith.Apllication.Modules.Abstractions" Version="$(HexalithVersion)" />
+		<PackageReference Include="Hexalith.Apllication.Abstractions" Version="$(HexalithVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Http" Version="$(MicrosoftExtensionsPackagesVersion)" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="$(AspNetCorePackagesVersion)" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="$(AspNetCorePackagesVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Components\Pages\" />
+		<Folder Include="Configurations\" />
+	</ItemGroup>
+</Project>
