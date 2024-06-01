@@ -16,11 +16,11 @@
 		</None>
 	</ItemGroup>
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
-		<ProjectReference Include="$(HexalithPath)\src\Core\Application\Hexalith.Apllication.Modules\Hexalith.Apllication.Modules.csproj" />
+		<ProjectReference Include="$(HexalithPath)\src\Core\Application\Hexalith.Application.Modules\Hexalith.Application.Modules.csproj" />
 		<ProjectReference Include="$(HexalithPath)\src\Core\Common\Hexalith.TestMocks\Hexalith.TestMocks.csproj" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(UseProjectReference)' != 'true'">
-		<PackageReference Include="Hexalith.Apllication.Modules" Version="$(HexalithVersion)" />
+		<PackageReference Include="Hexalith.Application.Modules" Version="$(HexalithVersion)" />
 		<PackageReference Include="Hexalith.TestMocks" Version="$(HexalithVersion)" />
 	</ItemGroup>
 </Project>

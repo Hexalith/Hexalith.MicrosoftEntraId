@@ -92,7 +92,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_build", "_build", "{3A505F
 		Hexalith.Modules.Shared.props = Hexalith.Modules.Shared.props
 		Hexalith.Modules.StoreApp.props = Hexalith.Modules.StoreApp.props
 		Hexalith.props = Hexalith.props
+		.github\workflows\hexalith_build.yml = .github\workflows\hexalith_build.yml
 		src\BuildFiles\Project.Common.props = src\BuildFiles\Project.Common.props
+		.github\workflows\semgrep.yml = .github\workflows\semgrep.yml
+		.github\workflows\sonarqube.yml = .github\workflows\sonarqube.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8B5B1376-6E74-4BE2-8688-5F4B604B0370}"
@@ -141,7 +144,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexalithApp.Shared", "Hexal
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{42E73C73-473F-4769-A460-D57ECAC1F8F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexalith.Oidc.Shared", "src\Modules\Hexalith.Oidc.Shared\Hexalith.Oidc.Shared.csproj", "{452693CB-499A-4D88-A5DC-C8276B8BC626}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Oidc.Shared", "src\Modules\Hexalith.Oidc.Shared\Hexalith.Oidc.Shared.csproj", "{452693CB-499A-4D88-A5DC-C8276B8BC626}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Oidc.Client", "src\Modules\Hexalith.Oidc.Client\Hexalith.Oidc.Client.csproj", "{9DED4399-1E8D-4946-BDC1-D7AD97287CA7}"
 EndProject

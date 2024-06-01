@@ -25,12 +25,20 @@ using Hexalith.Extensions.Configuration;
 [DataContract]
 public record OidcSettings(
     [property: DataMember]
-    string Authority = "",
+    string Authority,
     [property: DataMember]
-    string ClientId = "",
+    string ClientId,
     [property: DataMember]
-    string ClientSecret = "") : ISettings
+    string ClientSecret) : ISettings
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="OidcSettings"/> class.
+    /// </summary>
+    internal OidcSettings()
+        : this(string.Empty, string.Empty, string.Empty)
+    {
+    }
+
     /// <summary>
     /// The name of the configuration.
     /// </summary>

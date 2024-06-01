@@ -58,7 +58,7 @@ public sealed class OidcServerModule : IServerApplicationModule
     /// </summary>
     /// <param name="services">The service collection.</param>
     /// <param name="configuration">The configuration.</param>
-    public static void AddServerServices(IServiceCollection services, IConfiguration configuration)
+    public static void AddServerModulesServices(IServiceCollection services, IConfiguration configuration)
     {
         _ = services.AddSingleton<AuthenticationStateProvider, ServerPersistingAuthenticationStateProvider>();
 

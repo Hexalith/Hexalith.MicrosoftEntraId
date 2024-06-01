@@ -8,6 +8,12 @@ namespace Hexalith.Oidc.UnitTests.Modules;
 
 using FluentAssertions;
 
+using Hexalith.Application.Modules;
+using Hexalith.Application.Modules.Configurations;
+using Hexalith.Oidc.Client;
+using Hexalith.Oidc.Server;
+using Hexalith.Oidc.Shared;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -46,11 +52,11 @@ public class ModuleManagerTest
         _ = manager
             .ClientPresentationAssemblies
             .Should()
-            .Contain(typeof(HexalithClientModule).Assembly);
+            .Contain(typeof(OidcClientModule).Assembly);
         _ = manager
             .ClientPresentationAssemblies
             .Should()
-            .Contain(typeof(HexalithSharedModule).Assembly);
+            .Contain(typeof(OidcSharedModule).Assembly);
     }
 
     [Fact]
@@ -64,7 +70,7 @@ public class ModuleManagerTest
         _ = manager
             .ClientModules
             .Select(p => p.Value)
-            .OfType<HexalithClientModule>()
+            .OfType<OidcClientModule>()
             .Should()
             .HaveCount(1);
     }
@@ -84,15 +90,15 @@ public class ModuleManagerTest
         _ = manager
             .ServerPresentationAssemblies
             .Should()
-            .Contain(typeof(HexalithServerModule).Assembly);
+            .Contain(typeof(OidcServerModule).Assembly);
         _ = manager
             .ServerPresentationAssemblies
             .Should()
-            .Contain(typeof(HexalithSharedModule).Assembly);
+            .Contain(typeof(OidcSharedModule).Assembly);
         _ = manager
             .ServerPresentationAssemblies
             .Should()
-            .Contain(typeof(HexalithClientModule).Assembly);
+            .Contain(typeof(OidcClientModule).Assembly);
     }
 
     [Fact]
@@ -106,7 +112,7 @@ public class ModuleManagerTest
         _ = manager
             .ServerModules
             .Select(p => p.Value)
-            .OfType<HexalithServerModule>()
+            .OfType<OidcServerModule>()
             .Should()
             .HaveCount(1);
     }
@@ -122,7 +128,7 @@ public class ModuleManagerTest
         _ = manager
             .SharedModules
             .Select(p => p.Value)
-            .OfType<HexalithSharedModule>()
+            .OfType<OidcSharedModule>()
             .Should()
             .HaveCount(1);
     }
