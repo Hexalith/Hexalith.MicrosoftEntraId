@@ -9,4 +9,7 @@
 	<ItemGroup Condition="'$(UseProjectReference)' != 'true'">
 		<PackageReference Include="Hexalith.Oidc.Shared" Version="$(HexalithOidcVersion)" />
 	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)src/SharedApplication.cs" />
+	</ItemGroup>
 </Project>

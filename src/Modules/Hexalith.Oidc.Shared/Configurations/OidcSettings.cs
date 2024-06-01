@@ -1,6 +1,7 @@
 ﻿namespace Hexalith.Oidc.Shared.Configurations;
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 using Hexalith.Extensions.Configuration;
 
@@ -25,6 +26,11 @@ using Hexalith.Extensions.Configuration;
 [DataContract]
 public record OidcSettings(
     [property: DataMember]
+    [property:JsonConverter(typeof(JsonStringEnumConverter))]
+    OidcType OidcType,
+    [property: DataMember]
+    string Tenant,
+    [property: DataMember]
     string Authority,
     [property: DataMember]
     string ClientId,
@@ -34,8 +40,8 @@ public record OidcSettings(
     /// <summary>
     /// Initializes a new instance of the <see cref="OidcSettings"/> class.
     /// </summary>
-    internal OidcSettings()
-        : this(string.Empty, string.Empty, string.Empty)
+    public OidcSettings()
+        : this(OidcType.Oidc, string.Empty, string.Empty, string.Empty, string.Empty)
     {
     }
 

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Components.Web;
 /// This is a server-side AuthenticationStateProvider that uses PersistentComponentState to flow the
 /// authentication state to the client which is then fixed for the lifetime of the WebAssembly application.
 /// </summary>
-internal sealed class ServerPersistingAuthenticationStateProvider :
+public sealed class ServerPersistingAuthenticationStateProvider :
     AuthenticationStateProvider,
     IHostEnvironmentAuthenticationStateProvider,
     IDisposable
@@ -23,8 +23,9 @@ internal sealed class ServerPersistingAuthenticationStateProvider :
     /// Initializes a new instance of the <see cref="ServerPersistingAuthenticationStateProvider"/> class.
     /// </summary>
     /// <param name="state">The authentification state.</param>
-    internal ServerPersistingAuthenticationStateProvider(PersistentComponentState state)
+    public ServerPersistingAuthenticationStateProvider(PersistentComponentState state)
     {
+        ArgumentNullException.ThrowIfNull(state);
         _persistentComponentState = state;
         _subscription = state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
     }

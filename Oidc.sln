@@ -81,7 +81,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Infrastructure.Asp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6DCC825D-02D0-4F25-9A3D-A530736AB837}"
 	ProjectSection(SolutionItems) = preProject
+		src\SharedApplication.cs = src\SharedApplication.cs
+		src\ClientApplication.cs = src\ClientApplication.cs
 		src\Directory.Build.props = src\Directory.Build.props
+		src\ServerApplication.cs = src\ServerApplication.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_build", "_build", "{3A505FC6-CBD6-4D4F-BF48-329C3148282B}"

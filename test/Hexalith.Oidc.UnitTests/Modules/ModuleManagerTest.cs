@@ -13,6 +13,7 @@ using Hexalith.Application.Modules.Configurations;
 using Hexalith.Oidc.Client;
 using Hexalith.Oidc.Server;
 using Hexalith.Oidc.Shared;
+using Hexalith.Oidc.UnitTests.Configurations;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,12 +25,13 @@ using Moq;
 public class ModuleManagerTest
 {
     [Fact]
-    public void DummyServicesFromModulesShouldBeAdded()
+    public void ClientServicesFromModulesShouldBeAdded()
     {
         ServiceCollection services = [];
         Mock<IConfiguration> configurationMock = new();
 
-        ModuleManager.AddSharedModulesServices(services, configurationMock.Object);
+        ModuleManager.AddClientModulesServices(services, configurationMock.Object);
+        _ = ModuleManager.ClientModuleTypes.Should().HaveCount(1);
 
         // Check that the services have been added
         _ = services
@@ -131,5 +133,45 @@ public class ModuleManagerTest
             .OfType<OidcSharedModule>()
             .Should()
             .HaveCount(1);
+    }
+
+    [Fact]
+    public void ServerServicesFromModulesShouldBeAdded()
+    {
+        ServiceCollection services = [];
+        Mock<IConfiguration> configurationMock = new();
+        _ = ModuleManager
+            .ServerModuleTypes
+            .Should()
+            .Contain(typeof(OidcServerModule));
+
+        ModuleManager.AddServerModulesServices(services, configurationMock.Object);
+
+        // Check that the services have been added
+        _ = services
+            .Should()
+            .NotBeEmpty();
+    }
+
+    [Fact]
+    public void SharedServicesFromModulesShouldBeAdded()
+    {
+        IConfigurationRoot configuration = new ConfigurationBuilder()
+            .AddInMemoryCollection(OidcSettingsTest.TestSettings)
+            .Build();
+        ServiceCollection services = [];
+        _ = ModuleManager.SharedModuleTypes.Should().HaveCount(1);
+
+        _ = ModuleManager
+            .SharedModuleTypes
+            .Should()
+            .Contain(typeof(OidcSharedModule));
+
+        ModuleManager.AddSharedModulesServices(services, configuration);
+
+        // Check that the services have been added
+        _ = services
+            .Should()
+            .NotBeEmpty();
     }
 }

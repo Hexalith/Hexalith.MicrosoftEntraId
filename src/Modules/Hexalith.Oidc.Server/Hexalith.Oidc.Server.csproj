@@ -3,10 +3,11 @@
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\Hexalith.Oidc.Shared\Hexalith.Oidc.Shared.csproj" />
+		<ProjectReference Include="..\Hexalith.Oidc.Client\Hexalith.Oidc.Client.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="$(AspNetCorePackagesVersion)" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCorePackagesVersion)" />
+		<PackageReference Include="Microsoft.Identity.Web" Version="2.19.0" />
 	</ItemGroup>
 </Project>

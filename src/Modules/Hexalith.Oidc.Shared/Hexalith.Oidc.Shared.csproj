@@ -13,8 +13,4 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="$(AspNetCorePackagesVersion)" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="$(AspNetCorePackagesVersion)" />
 	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="Components\Pages\" />
-		<Folder Include="Configurations\" />
-	</ItemGroup>
 </Project>

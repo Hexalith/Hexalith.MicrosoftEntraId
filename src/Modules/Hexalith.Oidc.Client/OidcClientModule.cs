@@ -45,5 +45,5 @@ public class OidcClientModule : IClientApplicationModule
     /// <param name="services">The service collection.</param>
     /// <param name="configuration">The configuration.</param>
     public static void AddClientModulesServices(IServiceCollection services, IConfiguration configuration)
-        => _ = services.AddSingleton<AuthenticationStateProvider, ClientPersistentAuthenticationStateProvider>();
+        => _ = services.AddScoped<AuthenticationStateProvider, ClientPersistentAuthenticationStateProvider>();
 }

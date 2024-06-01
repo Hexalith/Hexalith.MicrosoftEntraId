@@ -47,8 +47,8 @@ public class OidcSharedModule : ISharedApplicationModule
     public static void AddSharedModulesServices(IServiceCollection services, IConfiguration configuration)
     {
         _ = services
+            .AddAuthorizationCore()
+            .AddCascadingAuthenticationState()
             .ConfigureSettings<OidcSettings>(configuration);
-        _ = services
-            .AddAuthorizationCore();
     }
 }

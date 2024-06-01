@@ -18,7 +18,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 /// that authenticate to the server when making subsequent requests. That works separately using a
 /// cookie that will be included on HttpClient requests to the server.
 /// </summary>
-internal sealed class ClientPersistentAuthenticationStateProvider : AuthenticationStateProvider
+public sealed class ClientPersistentAuthenticationStateProvider : AuthenticationStateProvider
 {
     private static readonly Task<AuthenticationState> _defaultUnauthenticatedTask =
         Task.FromResult(new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())));
@@ -29,7 +29,7 @@ internal sealed class ClientPersistentAuthenticationStateProvider : Authenticati
     /// Initializes a new instance of the <see cref="ClientPersistentAuthenticationStateProvider"/> class.
     /// </summary>
     /// <param name="state">The authentication state.</param>
-    internal ClientPersistentAuthenticationStateProvider(PersistentComponentState state)
+    public ClientPersistentAuthenticationStateProvider(PersistentComponentState state)
     {
         ArgumentNullException.ThrowIfNull(state);
         if (!state.TryTakeFromJson<UserInfo>(nameof(UserInfo), out UserInfo? userInfo) || userInfo is null)
