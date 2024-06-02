@@ -4,9 +4,11 @@
 	</PropertyGroup>
 	<Import Project="$(HexalithModulesSharedProps)" Condition=" '$(HexalithModulesSharedProps)' != '' " />
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
+		<ProjectReference Include="$(HexalithPath)\src\Core\UI\Hexalith.UI.Components\Hexalith.UI.Components.csproj" />
 		<ProjectReference Include="$(HexalithOidcPath)\src\Modules\Hexalith.Oidc.Shared\Hexalith.Oidc.Shared.csproj" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(UseProjectReference)' != 'true'">
+		<PackageReference Include="Hexalith.UI.Components" Version="$(HexalithOidcVersion)" />
 		<PackageReference Include="Hexalith.Oidc.Shared" Version="$(HexalithOidcVersion)" />
 	</ItemGroup>
 	<ItemGroup>

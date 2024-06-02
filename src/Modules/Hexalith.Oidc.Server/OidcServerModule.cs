@@ -63,7 +63,7 @@ public sealed class OidcServerModule : IServerApplicationModule
     /// </summary>
     /// <param name="services">The service collection.</param>
     /// <param name="configuration">The configuration.</param>
-    public static void AddServerModulesServices(IServiceCollection services, IConfiguration configuration)
+    public static void AddServices(IServiceCollection services, IConfiguration configuration)
     {
         _ = services.AddScoped<AuthenticationStateProvider, ServerPersistingAuthenticationStateProvider>();
 
@@ -116,7 +116,7 @@ public sealed class OidcServerModule : IServerApplicationModule
                 // The "offline_access" scope is required for the refresh token.
                 oidcOptions.Scope.Add(OpenIdConnectScope.OfflineAccess);
 
-                string tenant = string.IsNullOrWhiteSpace(settings.Tenant) ? settings.Tenant : "common";
+                string tenant = string.IsNullOrWhiteSpace(settings.Tenant) ? "common" : settings.Tenant;
                 oidcOptions.Authority = settings.OidcType == OidcType.MicrosoftEntraId
                     ? $"https://login.microsoftonline.com/{tenant}/v2.0/"
                     : settings.Authority;

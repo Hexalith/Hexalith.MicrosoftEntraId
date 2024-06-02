@@ -1,5 +1,9 @@
 <Project>
 	<Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+	<Import Project="$([MSBuild]::GetPathOfFileAbove('Hexalith.props', '$(MSBuildThisFileDirectory)'))" />
+	<Import Project="$([MSBuild]::GetPathOfFileAbove('Hexalith.Modules.Shared.props', '$(MSBuildThisFileDirectory)'))" />
+	<Import Project="$([MSBuild]::GetPathOfFileAbove('Hexalith.Modules.Client.props', '$(MSBuildThisFileDirectory)'))" />
+	<Import Project="$([MSBuild]::GetPathOfFileAbove('Hexalith.Modules.Server.props', '$(MSBuildThisFileDirectory)'))" />
 	<PropertyGroup>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>

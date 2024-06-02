@@ -49,7 +49,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Domain.Organizatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.UI.ApplicationLayout", "Hexalith\src\Core\UI\Hexalith.UI.ApplicationLayout\Hexalith.UI.ApplicationLayout.csproj", "{29551DAF-21B8-4C4D-A765-4F75D1758CB9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{3D11F14C-AF25-4D09-8182-568B18EB78FC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{3D11F14C-AF25-4D09-8182-568B18EB78FC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Domain.Surveys", "Hexalith\src\Core\Domain\Hexalith.Domain.Surveys\Hexalith.Domain.Surveys.csproj", "{398AB413-51AA-4973-A5D5-DD584C4F4B6C}"
 EndProject
@@ -81,10 +81,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Infrastructure.Asp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6DCC825D-02D0-4F25-9A3D-A530736AB837}"
 	ProjectSection(SolutionItems) = preProject
-		src\SharedApplication.cs = src\SharedApplication.cs
-		src\ClientApplication.cs = src\ClientApplication.cs
 		src\Directory.Build.props = src\Directory.Build.props
-		src\ServerApplication.cs = src\ServerApplication.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_build", "_build", "{3A505FC6-CBD6-4D4F-BF48-329C3148282B}"

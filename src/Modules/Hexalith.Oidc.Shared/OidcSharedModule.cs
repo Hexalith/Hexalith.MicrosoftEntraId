@@ -44,7 +44,7 @@ public class OidcSharedModule : ISharedApplicationModule
     /// </summary>
     /// <param name="services">The service collection.</param>
     /// <param name="configuration">The configuration.</param>
-    public static void AddSharedModulesServices(IServiceCollection services, IConfiguration configuration)
+    public static void AddServices(IServiceCollection services, IConfiguration configuration)
     {
         _ = services
             .AddAuthorizationCore()
