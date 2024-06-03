@@ -19,19 +19,19 @@ public class OidcSharedModule : ISharedApplicationModule
     public IEnumerable<string> Dependencies => [];
 
     /// <inheritdoc/>
-    public string Description => "Microsoft Entra ID shared module";
+    public string Description => "Hexalith Open ID connect shared module";
 
     /// <inheritdoc/>
     public string Id => "Hexalith.Oidc.Shared";
 
     /// <inheritdoc/>
-    public string Name => "Microsoft Entra ID shared";
+    public string Name => "Hexalith OIDC shared";
 
     /// <inheritdoc/>
     public int OrderWeight => 0;
 
     /// <inheritdoc/>
-    public string Path => "hexalith/microsoftentraid";
+    public string Path => "hexalith/oidc";
 
     /// <inheritdoc/>
     public IEnumerable<Assembly> PresentationAssemblies => [GetType().Assembly];
