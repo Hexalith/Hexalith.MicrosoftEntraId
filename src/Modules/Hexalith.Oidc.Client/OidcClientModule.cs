@@ -46,4 +46,9 @@ public class OidcClientModule : IClientApplicationModule
     /// <param name="configuration">The configuration.</param>
     public static void AddServices(IServiceCollection services, IConfiguration configuration)
         => _ = services.AddScoped<AuthenticationStateProvider, ClientPersistentAuthenticationStateProvider>();
+
+    /// <inheritdoc/>
+    public void UseModule(object builder)
+    {
+    }
 }

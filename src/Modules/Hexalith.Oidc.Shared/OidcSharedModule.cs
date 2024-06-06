@@ -51,4 +51,9 @@ public class OidcSharedModule : ISharedApplicationModule
             .AddCascadingAuthenticationState()
             .ConfigureSettings<OidcSettings>(configuration);
     }
+
+    /// <inheritdoc/>
+    public void UseModule(object builder)
+    {
+    }
 }

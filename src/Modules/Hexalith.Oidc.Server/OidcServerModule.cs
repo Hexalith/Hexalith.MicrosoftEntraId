@@ -56,7 +56,7 @@ public sealed class OidcServerModule : IServerApplicationModule
 
     private static string OidcScheme => "MicrosoftOidc";
 
-    private static string Path => "hexalith/microsoftentraid";
+    private static string Path => "hexalith/oidc";
 
     /// <summary>
     /// Adds services to the service collection.
@@ -160,26 +160,25 @@ public sealed class OidcServerModule : IServerApplicationModule
         _ = services.AddAuthorization();
     }
 
-    /// <summary>
-    /// Maps the module.
-    /// </summary>
-    /// <param name="endpoints">The endpoint route builder.</param>
-    /// <returns>The endpoint convention builder.</returns>
-    public static IEndpointConventionBuilder MapModule(IEndpointRouteBuilder endpoints)
+    /// <inheritdoc/>
+    public void UseModule(object builder)
     {
-        RouteGroupBuilder group = endpoints.MapGroup(nameof(Hexalith.Oidc));
+        if (builder is not IEndpointRouteBuilder endpoints)
+        {
+            throw new ArgumentNullException(nameof(builder), $"The application object does not implement {nameof(IEndpointRouteBuilder)}.");
+        }
 
-        _ = group.MapGet(Path + "/login", (string? returnUrl) => TypedResults.Challenge(GetAuthProperties(returnUrl)))
-            .AllowAnonymous();
+        RouteGroupBuilder group = endpoints.MapGroup(Path);
+
+        _ = group.MapGet("login", (string? returnUrl) => TypedResults.Challenge(GetAuthProperties(returnUrl)))
+                .AllowAnonymous();
 
         // Sign out of the Cookie and OIDC handlers. If you do not sign out with the OIDC handler,
         // the user will automatically be signed back in the next time they visit a page that requires authentication
         // without being able to choose another account.
-        _ = group.MapPost(Path + "/logout", ([FromForm] string? returnUrl) => TypedResults.SignOut(
-            GetAuthProperties(returnUrl),
-            [CookieScheme, OidcScheme]));
-
-        return group;
+        _ = group.MapPost("logout", ([FromForm] string? returnUrl) => TypedResults.SignOut(
+                GetAuthProperties(returnUrl),
+                [CookieScheme, OidcScheme]));
     }
 
     [SuppressMessage("Major Code Smell", "S3994:URI Parameters should not be strings", Justification = "Does not apply here.")]
